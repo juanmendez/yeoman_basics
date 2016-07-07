@@ -1,5 +1,8 @@
 'use strict';
-var generators = require('yeoman-generator');
+var generators = require('yeoman-generator'),
+_ = require('lodash'),
+chalk = require('chalk'),
+yosay = require('yosay');
 
 module.exports = generators.Base.extend({
     constructor: function(){
@@ -12,15 +15,13 @@ module.exports = generators.Base.extend({
     initializing:function(){
         this.log( "initializing" );
     },
-    prompting:{
+    prompting:function(){
+        this.log(yosay('Welcome to ' +
+            chalk.yellow('YANG (Yet Another Angular)') + ' generator!'));
 
-        method1 : function(){
-            this.log( "in prompting1");
-        },
-
-        method2 : function(){
-            this.log( "in prompting2");
-        }
+        this.argument( 'appname', {type:String, required:true });
+        this.appname = _.kebabCase(this.appname);
+        this.log( "appname: " + this.appname );
     },
     configuring:function(){
         this.log( "configuring" );
@@ -44,7 +45,7 @@ module.exports = generators.Base.extend({
         },
         bower:function(){
             var bowerJson = {
-                name: 'my-app', // TODO: make dynamic
+                name: _.startCase(this.appname), // TODO: make dynamic
                 license: 'MIT',
                 dependencies: {}
             };
@@ -100,7 +101,7 @@ module.exports = generators.Base.extend({
                 this.templatePath('_index.html'),
                 this.destinationPath('src/index.html'),
                 {
-                    appname: 'My Cool App',
+                    appname: _.startCase(this.appname),
                     ngapp: 'myapp'
                 }
             );
