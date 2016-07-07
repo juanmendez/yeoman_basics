@@ -1,15 +1,15 @@
-# yeoman_basics
+# yeoman file contexts
 
-Creating your own generator
-
+![alt tag](notes/images/file_context.PNG)
+<br/><br/>
+In Memory File System: 
 <ul>
-    <li>npm init</li>
-    <li>following instructions to create package</li>
-    <li>having index.js declare a generator</li>
-    <li>npm link</li>
-    <li>now you can go into another directory and do &gt yo yang</li>  
+<li>Prevent accidental overwrite</li>
+<li>Synchronous File System API</li>
 </ul>
-<br/>
-Here are some notes in the yeoman context<br/>
 
-![alt tag](notes/images/running_context.PNG)
+I make a generated directory withing this project
+mkdir generated
+then I run &gt yo yang
+
+That has created now generated/src/favicon.ico

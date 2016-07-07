@@ -1,29 +1,80 @@
 'use strict';
-
 var generators = require('yeoman-generator');
 
-var MyBase = generators.Base.extend({
-    myBaseHelper:function(){
-        console.log( "@baz: another helper" );
-    }
-});
-
-module.exports = MyBase.extend({
+module.exports = generators.Base.extend({
     constructor: function(){
       generators.Base.apply( this, arguments );
     },
-    init:function(){
-        this.log( "inside init" );
-        this.baz = function(){
-            this.log( "inside baz" );
+
+    /**
+     * it is best to keep the context order in place.
+     */
+    initializing:function(){
+        this.log( "initializing" );
+    },
+    prompting:{
+
+        method1 : function(){
+            this.log( "in prompting1");
+        },
+
+        method2 : function(){
+            this.log( "in prompting2");
         }
     },
-    method1:function(){
-        this._privateMethod();
+    configuring:function(){
+        this.log( "configuring" );
     },
-    _privateMethod:function(){
-        this.log( "hello world" );
-        this.baz();
-        this.myBaseHelper();
+    default:function(){
+        this.log( "default" );
+    },
+    writing:{
+        gulpFile:function(){
+
+        },
+        packageJson:function(){
+
+        },
+        git:function(){
+
+        },
+        bower:function(){
+
+        },
+        appStaticFiles:function(){
+            this.log( "template path: " + this.templatePath() );
+            this.log( "destination path: " + this.destinationPath() );
+
+            var source =  this.templatePath( "_favicon.ico" );
+            var destination =  this.destinationPath( "src/_favicon.ico" );
+
+            this.log( "source: " + source );
+            this.log( "destination " + destination );
+
+            //this is using the template and destination paths
+            this.copy( '_favicon.ico', 'src/favicon.ico' );
+        },
+        scripts:function(){
+
+        },
+        html:function(){
+
+        }
+    },
+    conflicts:function(){
+        this.log( "conflicts" );
+    },
+    install:function(){
+        this.log( "install" );
+    },
+    end:function(){
+        this.log( "end" );
+    },
+
+    /**
+     * custom functions happen after default.
+     */
+    custom:function(){
+        this.log( "***custom");
     }
 });
