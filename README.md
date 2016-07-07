@@ -9,6 +9,7 @@ Creating your own generator
     <li>npm link</li>
     <li>now you can go into another directory and do &gt yo yang</li>  
 </ul>
+<br/>
+Here are some notes in the yeoman context<br/>
 
-Here are some notes in the yeoman context
-<img src="notes/images/running_context.PNG">
+![alt tag](notes/images/running_context.PNG)
