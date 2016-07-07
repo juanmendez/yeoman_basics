@@ -1,10 +1,5 @@
 node_modules
+dist
+.tmp
 bower_components
-.DS_Store
-**/.DS_Store
-.tmp/
-*.versionsBackup
-*.iml
-build
-.idea
-npm-debug.log
+test/bower_components
