@@ -1,0 +1,22 @@
+{
+  "name": "generator-yang",
+  "version": "1.0.0",
+  "description": "Creating your own generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanmendez/yeoman_basics.git"
+  },
+  "author": "Juan Mendez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanmendez/yeoman_basics/issues"
+  },
+  "homepage": "https://github.com/juanmendez/yeoman_basics#readme",
+  "dependencies": {
+    "yeoman-generator": "^0.23.4"
+  }
+}
