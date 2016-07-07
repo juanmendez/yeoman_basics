@@ -10,6 +10,7 @@ In Memory File System:
 
 I make a generated directory withing this project
 mkdir generated
+cd generated
 then I run &gt yo yang
 
 That has created now generated/src/favicon.ico
