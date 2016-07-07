@@ -9,3 +9,6 @@ Creating your own generator
     <li>npm link</li>
     <li>now you can go into another directory and do &gt yo yang</li>  
 </ul>
+
+Here are some notes in the yeoman context
+<img src="notes/images/running_context.PNG">
