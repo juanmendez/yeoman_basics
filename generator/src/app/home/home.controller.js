@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app').controller('HomeCtrl', HomeCtrl);
+    angular.module('This-App-Is-Cached').controller('HomeCtrl', HomeCtrl);
 
     HomeCtrl.$inject = [];
     

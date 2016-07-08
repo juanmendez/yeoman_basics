@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app').controller('AboutCtrl', AboutCtrl);
+    angular.module('This-App-Is-Cached').controller('AboutCtrl', AboutCtrl);
 
     AboutCtrl.$inject = [];
     

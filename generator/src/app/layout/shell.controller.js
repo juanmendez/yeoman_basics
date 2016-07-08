@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app').controller('ShellCtrl', ShellCtrl);
+    angular.module('This-App-Is-Cached').controller('ShellCtrl', ShellCtrl);
 
     ShellCtrl.$inject = ['$rootScope'];
 

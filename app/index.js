@@ -7,7 +7,7 @@ var generators = require('yeoman-generator'),
 module.exports = generators.Base.extend({
     constructor: function(){
         generators.Base.apply(this, arguments);
-        
+
         this.argument('appname', { type: String, required: true });
         this.appname = _.kebabCase(this.appname);
         
@@ -25,16 +25,21 @@ module.exports = generators.Base.extend({
             chalk.yellow('YANG (Yet Another Angular)') + ' generator!'));
             
             var done = this.async();
-            this.prompt([{
+
+        /**
+         * lets make promps be cached using store->true
+         */
+        this.prompt([{
                 type: 'input',
                 name: 'ngappname',
                 message: 'Angular App Name (ng-app)',
-                default: 'app'
+                default: this.config.get('ngappname') || 'app'
             },
             {
                 type: 'checkbox',
                 name: 'jslibs',
                 message: 'Which JS libraries would you like to include?',
+                store:true,
                 choices: [
                     {
                         name: 'lodash',
@@ -54,7 +59,9 @@ module.exports = generators.Base.extend({
                 ]
             }], function(answers){
                this.log(answers);
-               this.ngappname = answers.ngappname;
+                this.config.set('ngappname', answers.ngappname);
+                this.config.save();
+
                this.includeLodash = _.includes(answers.jslibs, 'lodash');
                this.includeMoment = _.includes(answers.jslibs, 'momentjs');
                this.includeAngularUIUtils = _.includes(answers.jslibs, 'angularuiutils');               
@@ -114,26 +121,26 @@ module.exports = generators.Base.extend({
                 this.templatePath('app/_app.js'),
                 this.destinationPath('src/app/app.js'),
                 {
-                    ngapp: this.ngappname
+                    ngapp: this.config.get('ngappname')
                 }
             );
             this.fs.copyTpl(
                 this.templatePath('app/layout/_shell.controller.js'),
                 this.destinationPath('src/app/layout/shell.controller.js'),
                 {
-                    ngapp: this.ngappname
+                    ngapp: this.config.get('ngappname')
                 });
             this.fs.copyTpl(
                 this.templatePath('app/home/_home.controller.js'),
                 this.destinationPath('src/app/home/home.controller.js'),
                 {
-                    ngapp: this.ngappname
+                    ngapp: this.config.get('ngappname')
                 });
             this.fs.copyTpl(
                 this.templatePath('app/about/_about.controller.js'),
                 this.destinationPath('src/app/about/about.controller.js'),
                 {
-                    ngapp: this.ngappname
+                    ngapp: this.config.get('ngappname')
                 });
         },
 
@@ -143,7 +150,7 @@ module.exports = generators.Base.extend({
                 this.destinationPath('src/index.html'),
                 {
                     appname: _.startCase(this.appname),
-                    ngapp: this.ngappname
+                    ngapp: this.config.get('ngappname')
                 }
             );
             this.fs.copy(
