@@ -1,16 +1,14 @@
-# yeoman file contexts
+# yeoman interactions
 
-![alt tag](notes/images/file_context.PNG)
-<br/><br/>
-In Memory File System: 
-<ul>
-<li>Prevent accidental overwrite</li>
-<li>Synchronous File System API</li>
-</ul>
+when working with requirements for example using appname
+we run 
+`yo yang my-cool-app`
 
-I make a generated directory withing this project
-mkdir generated
-cd generated
-then I run &gt yo yang
 
-That has created now generated/src/favicon.ico
+when working with options
+`yo yang my-cool-app --includeutils`
+
+
+Yeoman prompts are based on Inquierer.js. So this is a good place to get more ideas how promps can work.
+
+Make sure to run at times `npm link`. I noticed at one point creating a generated project didn't work all the way.
