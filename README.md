@@ -14,4 +14,4 @@ This stepping proved to be right. First installation completes installing depend
     }
     
     
-The yeoman generator is now found at yang directory. In this way we are going to create a top generator.
+The yeoman generator is now found at `_yang` directory. In this way we are going to create a top generator.
