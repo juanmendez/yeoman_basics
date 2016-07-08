@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <title>My App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--bower:css-->
+    <link rel="stylesheet" href="lib/bootstrap-css-only/css/bootstrap.css" />
+    <!--endbower-->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endinject -->
+</head>
+<body>
+    <div id="applicationHost" class="container body-content admin-appHost">
+        <div data-ng-include="'/app/layout/shell.html'"></div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <span class="pull-right text-info credit">Base App</span>
+        </div>
+    </div>
+
+     <!--bower:js-->
+     <script src="lib/angular/angular.js"></script>
+     <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+     <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+     <script src="lib/lodash/lodash.js"></script>
+     <!--endbower-->
+
+    <!-- inject:js -->
+    <script src="app/app.js"></script>
+    <script src="app/about/about.controller.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/layout/shell.controller.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
