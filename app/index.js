@@ -167,7 +167,15 @@ module.exports = generators.Base.extend({
     conflicts: function(){
     },
     install: function(){
+        /*this.bowerInstall();
+        this.npmInstall();*/
+
+        var self = this;
+        this.installDependencies({npm:true, bower:true, skipMessage:false, callback:function(){
+            self.log( "installed dependencies" );
+        }});
     },
     end: function(){
+        this.log( "yeoman has completed!");
     }
 });
